@@ -7,14 +7,14 @@ pkgrel=1
 pkgdesc='Tools for Arch Linux package maintainers'
 arch=('any')
 license=('GPL')
-url='https://github.com/deepin-community/devtools-deepin'
+url='https://github.com/justforlxz/devtools-deepin'
 depends=('bash' 'openssh' 'subversion' 'rsync' 'arch-install-scripts'
          'git' 'bzr' 'mercurial' 'diffutils' 'util-linux' 'awk')
 makedepends=('asciidoc' 'git')
 optdepends=('btrfs-progs: btrfs support')
 provides=($_pkgname=${pkgver%%.r*})
 conflicts=($_pkgname)
-source=("$pkgname::git+https://github.com/deepin-community/devtools-deepin")
+source=("$pkgname::git+https://github.com/justforlxz/devtools-deepin")
 sha512sums=('SKIP')
 
 pkgver() {
