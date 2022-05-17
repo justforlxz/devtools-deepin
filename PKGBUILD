@@ -1,19 +1,14 @@
 # Maintainer: justforlxz <justforlxz@gmail.com>
 
 pkgname=devtools-deepin-git
-_pkgname=devtools
 pkgver=1.0.0
 pkgrel=1
 pkgdesc='Tools for Arch Linux package maintainers'
 arch=('any')
 license=('GPL')
 url='https://github.com/justforlxz/devtools-deepin'
-depends=('bash' 'openssh' 'subversion' 'rsync' 'arch-install-scripts'
-         'git' 'bzr' 'mercurial' 'diffutils' 'util-linux' 'awk')
-makedepends=('asciidoc' 'git')
-optdepends=('btrfs-progs: btrfs support')
-provides=($_pkgname=${pkgver%%.r*})
-conflicts=($_pkgname)
+depends=('cmake' 'devtools')
+makedepends=('git')
 source=("$pkgname::git+https://github.com/justforlxz/devtools-deepin")
 sha512sums=('SKIP')
 
@@ -24,12 +19,13 @@ pkgver() {
 
 build() {
   cd ${pkgname}
-  make BUILDTOOLVER="${pkgver}-${pkgrel}-${arch}" PREFIX=/usr
+  cmake . -DCMAKE_INSTALL_PREFIX=/usr
+  make
 }
 
 package() {
   cd ${pkgname}
-  make PREFIX=/usr DESTDIR="${pkgdir}" install
+  make DESTDIR="${pkgdir}" install
 }
 
 # vim: ts=2 sw=2 et:
