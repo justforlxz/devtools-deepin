@@ -1,7 +1,7 @@
 # Maintainer: justforlxz <justforlxz@gmail.com>
 
 pkgname=devtools-deepin-git
-pkgver=1.0.0
+pkgver=1.0.0.r0.g3d8a96e
 pkgrel=1
 pkgdesc='Tools for Arch Linux package maintainers'
 arch=('any')
